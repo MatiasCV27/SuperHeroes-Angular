@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.modalStyle {
+    color: white;
+    background: #212529;
+    border: 1px solid white;
+}
