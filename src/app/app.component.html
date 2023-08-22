@@ -31,12 +31,12 @@
         <td>{{ datos.Equipo }}</td>
         <td><img [src]="datos.Imagen" width="75"></td>
         <td>
-          <button type="button" class="btn btn-success btn-md" data-bs-toggle="modal" data-bs-target="#modalEditarSh">
+          <button (click)="seleccionarSuperHeroe(datos.id)" class="btn btn-success btn-md" data-bs-toggle="modal" data-bs-target="#modalEditarSh">
             <i class="bi bi-pencil-square"></i>
           </button>
         </td>
         <td>
-          <a class="btn btn-danger btn-md"><i class="bi bi-trash"></i></a>
+          <a (click)="eliminarSUperHeroe(datos.id, id)" class="btn btn-danger btn-md"><i class="bi bi-trash"></i></a>
         </td>
       </tr>
     </tbody>
@@ -53,7 +53,7 @@
       </div>
       <div class="modal-body mt-3 mb-3">
         <div class="container">
-          <form [formGroup]="formulario" class="row g-3">
+          <form (ngSubmit)="registrarSuperHeroe()" [formGroup]="formulario" class="row g-3">
             <div class="col-md-6">
               <label for="" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="" formControlName="Nombre">
@@ -86,19 +86,20 @@
               <label for="" class="form-label">Imagen (URL)</label>
               <input type="text" class="form-control" id="" formControlName="Imagen">
             </div>
+            <div class="col-md-6 mt-4"></div>
+            <div class="col-md-6 mt-4 d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary mx-2" data-bs-dismiss="modal">Registrar</button>
+            </div>
           </form>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="registrarSuperHeroe()" data-bs-dismiss="modal">Registrar</button>
       </div>
     </div>
   </div>
 </div>
 
 <!--TODO Modal de Editar -->
-<!-- <div class="modal fade" id="modalEditarSh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditarSh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content modalStyle">
       <div class="modal-header">
@@ -107,46 +108,47 @@
       </div>
       <div class="modal-body mt-3 mb-3">
         <div class="container">
-          <form class="row g-3">
+          <form (ngSubmit)="editarSuperHeroe(id)" [formGroup]="formularioEditar" class="row g-3">
             <div class="col-md-6">
               <label for="" class="form-label">Nombre</label>
-              <input type="email" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Nombre" name="info.Nombre" [(ngModel)]="info.Nombre">
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Alias</label>
-              <input type="password" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Alias" name="info.Alias" [(ngModel)]="info.Alias">
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Edad</label>
-              <input type="email" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Edad" name="info.Edad" [(ngModel)]="info.Edad">
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Genero</label>
-              <input type="password" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Genero" name="info.Genero" [(ngModel)]="info.Genero">
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Nacionalidad</label>
-              <input type="email" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Nacionalidad" name="info.Nacionalidad" [(ngModel)]="info.Nacionalidad">
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Debilidad</label>
-              <input type="password" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Debilidad" name="info.Debilidad" [(ngModel)]="info.Debilidad">
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Equipo</label>
-              <input type="email" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Equipo" name="info.Equipo" [(ngModel)]="info.Equipo">
             </div>
             <div class="col-md-6">
               <label for="" class="form-label">Imagen (URL)</label>
-              <input type="password" class="form-control" id="">
+              <input type="text" class="form-control" id="" formControlName="Imagen" name="info.Imagen" [(ngModel)]="info.Imagen">
+            </div>
+            <div class="col-md-6 mt-4"></div>
+            <div class="col-md-6 mt-4 d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary mx-2" data-bs-dismiss="modal">Editar</button>
             </div>
           </form>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Editar</button>
-      </div>
     </div>
   </div>
-</div> -->
+</div> 

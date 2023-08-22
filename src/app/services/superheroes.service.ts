@@ -27,6 +27,23 @@ export class SuperheroesService {
   }
 
   registrarSuperHeroe(superheroe:any) {
-    return this.http.post(`${this.url}/Superheroes.json`, superheroe)
+    return this.http.post(`${this.url}/Superheroes.json`, superheroe);
+  }
+
+  seleccionSuperHeroe(id: any) {
+    return this.http.get(`${this.url}/Superheroes/${id}.json`);
+  }
+
+  editarSuperHeroe(superheroe:any) {
+    const idTemp = {
+      ...superheroe
+    }
+    delete idTemp.id;
+
+    return this.http.put(`${this.url}/Superheroes/${superheroe.id}.json`, idTemp);
+  }
+
+  eliminarSuperHeroe(id:any) {
+    return this.http.delete(`${this.url}/Superheroes/${id}.json`);
   }
 }
