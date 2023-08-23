@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
-import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+//* Rutas
+//import { APP_ROUTING } from './app.routes';
+
+//* Componentes
+import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { ContactoComponent } from './views/contacto/contacto.component';
 import { SuperheroesComponent } from './views/mantenimiento/superheroes/superheroes.component';
@@ -26,6 +31,7 @@ import { EventosComponent } from './views/mantenimiento/eventos/eventos.componen
     FormsModule,
     ReactiveFormsModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl:'never'})
+    //APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent],

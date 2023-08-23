@@ -1,6 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+/*! Modal */
 .modalStyle {
     color: white;
     background: #212529;
     border: 1px solid white;
+}
+/*! NavBar */
+.fondo {
+    background-image: linear-gradient(to top, #58151c, #44131a, #2f1016, #1d0a0f, #000000);
+    font-size: 1em;
+    padding: 0;
+    border-bottom: 1.5px solid black;
+    height: 100%;
+    width: 100%;
+}
+.imgborder {
+    padding: 0;
+    box-shadow: 2.5px 2.5px 10px black;
+    position: fixed;
+}
+/*! Footer */
+.pie {
+    background-image: linear-gradient(to bottom, #58151c, #44131a, #2f1016, #1d0a0f, #000000);
+    color: white;
+    font-size: 1.1em;
+    text-align: center;
+    align-items: center;
+}
+.cont-pie {
+    width: 80%;
+    margin: auto;
+    padding: 1.25em;
+}
+.cont-pie p {
+    margin: 0;
+    align-self: center;
+}
+.foota {
+    color:  white;
+    padding-left: 10px;
+    text-decoration: none;
+}
+.foota:hover {
+    color: grey;
+}
+@media only screen and (max-width:991px) {
+    .footdiv {
+        padding: 12.5px;
+    }
 }

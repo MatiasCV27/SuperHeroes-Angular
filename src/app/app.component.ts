@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Type } from '@angular/core';
 import { SuperheroesService } from './services/superheroes.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { NavbarComponent } from './views/shared/navbar/navbar.component';
+import { FooterComponent } from './views/shared/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  navbarComponent: Type<NavbarComponent> = NavbarComponent;
+  footerComponent: Type<FooterComponent> = FooterComponent;
   title = 'EC4_SuperHeroes_MCV';
   data:any[] = [];
   info:any = [];
