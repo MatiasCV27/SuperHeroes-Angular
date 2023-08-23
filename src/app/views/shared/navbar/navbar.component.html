@@ -6,46 +6,14 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page"><strong>Inicio</strong></a>
+                <a class="nav-link" [routerLink]="['/home']"><strong>Inicio</strong></a>
+                <a class="nav-link" [routerLink]="['/superheroes']"><strong>Superheroes</strong></a>
+                <a class="nav-link" [routerLink]="['/villanos']"><strong>Villanos</strong></a>
+                <a class="nav-link" [routerLink]="['/eventos']"><strong>Eventos</strong></a>
+                <a class="nav-link" [routerLink]="['/Usuarios']"><strong>Usuarios</strong></a>
+                <a class="nav-link" [routerLink]="['/contacto']"><strong>Contacto</strong></a>
+                <a class="nav-link"><strong>Login</strong></a>
             </div>
-
-            <!--TODO: Desplegable para visualizar elementos -->
-            <li class="navbar-nav dropdown text-white">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Visualizar
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">Eventos</a></li>
-                    <li><a class="dropdown-item">Villanos</a></li>
-                    <li><a class="dropdown-item">Super-Heroes</a></li>
-                </ul>
-            </li>
-
-            <!--TODO: Desplegable de Administración -->
-            <li class="navbar-nav dropdown text-white">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Mantenimiento
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">Eventos</a></li>
-                    <li><a class="dropdown-item">Villanos</a></li>
-                    <li><a class="dropdown-item">Superheroes</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item">Usuarios</a></li>
-                </ul>
-            </li>
-
-            <!--TODO: Desplegable de Usuario -->
-            <!-- <ul class="navbar-nav mr-auto">
-                <li>
-                    <a class="btn btn-outline-warning" style="margin-left: 20px;">Iniciar Sesión</a>
-                </li>
-                <div class="dropdown" sec:authorize="isAuthenticated()">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      <strong class="text-white"><span sec:authentication="name">Salir</span></strong>
-                    </a>
-                </div>
-            </ul> -->
         </div>
     </div>
 </nav>
