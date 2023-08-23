@@ -1,7 +1,118 @@
 <ng-container *ngComponentOutlet="navbarComponent"></ng-container>
 
-<div class="container">
-    <h1>Aqui va el contenido del man user</h1>
-</div>
+<div class="container mt-5 mb-5" align="center">
+    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistroEve">Registrar</button>
+  </div>
+  
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Contrasena</th>
+          <th scope="col">Actividad</th>
+          <th scope="col">Roles</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datos of data;let id = index">
+          <th scope="row">{{ id + 1}}</th>
+          <td>{{ datos.Nombre }}</td>
+          <td>{{ datos.Contrasena }}</td>
+          <td>{{ datos.Actividad }}</td>
+          <td>{{ datos.Roles }}</td>
+          <td>
+            <button (click)="seleccionarUsuario(datos.id)" class="btn btn-success btn-md" data-bs-toggle="modal" data-bs-target="#modalEditarEve">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+          </td>
+          <td>
+            <a (click)="eliminarUsuario(datos.id, id)" class="btn btn-danger btn-md"><i class="bi bi-trash"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!--TODO Modal de Registro -->
+  <div class="modal fade" id="modalRegistroEve" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modalStyle">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar nuevo usuario</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body mt-3 mb-3">
+          <div class="container">
+            <form (ngSubmit)="registrarUsuario()" [formGroup]="formulario" class="row g-3">
+              <div class="col-md-6">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="" formControlName="Nombre">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Contraseña</label>
+                <input type="text" class="form-control" id="" formControlName="Contrasena">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Actividad</label>
+                <input type="text" class="form-control" id="" formControlName="Actividad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Roles</label>
+                <input type="text" class="form-control" id="" formControlName="Roles">
+              </div>
+              <div class="col-md-6 mt-4"></div>
+              <div class="col-md-6 mt-4 d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary mx-2" data-bs-dismiss="modal">Registrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--TODO Modal de Editar -->
+  <div class="modal fade" id="modalEditarEve" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modalStyle">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body mt-3 mb-3">
+          <div class="container">
+            <form (ngSubmit)="editarUsuario(id)" [formGroup]="formularioEditar" class="row g-3">
+              <div class="col-md-6">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="" formControlName="Nombre" name="info.Nombre" [(ngModel)]="info.Nombre">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Contraseña</label>
+                <input type="text" class="form-control" id="" formControlName="Contrasena" name="info.Contrasena" [(ngModel)]="info.Contrasena">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Actividad</label>
+                <input type="text" class="form-control" id="" formControlName="Actividad" name="info.Actividad" [(ngModel)]="info.Actividad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Roles</label>
+                <input type="text" class="form-control" id="" formControlName="Roles" name="info.Roles" [(ngModel)]="info.Roles">
+              </div>
+              <div class="col-md-6 mt-4"></div>
+              <div class="col-md-6 mt-4 d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary mx-2" data-bs-dismiss="modal">Editar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
 
 <ng-container *ngComponentOutlet="footerComponent"></ng-container>

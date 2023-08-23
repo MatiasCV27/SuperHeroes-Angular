@@ -22,7 +22,7 @@ export class UsuariosComponent {
   //TODO Validar Registro
   formulario:FormGroup = this.fb.group({
     Nombre:[,[Validators.required]],
-    Contraseña:[,[Validators.required]],
+    Contrasena:[,[Validators.required]],
     Actividad:[,[Validators.required]],
     Roles:[,[Validators.required]],
   })
@@ -30,7 +30,7 @@ export class UsuariosComponent {
   //TODO Validar Editar
   formularioEditar:FormGroup = this.fb.group({
     Nombre:[,[Validators.required]],
-    Contraseña:[,[Validators.required]],
+    Contrasena:[,[Validators.required]],
     Actividad:[,[Validators.required]],
     Roles:[,[Validators.required]],
   })
@@ -75,7 +75,7 @@ export class UsuariosComponent {
     const usuario:any = {
       id:id,
       Nombre:this.formularioEditar.value.Nombre,
-      Contraseña:this.formularioEditar.value.Contraseña,
+      Contrasena:this.formularioEditar.value.Contrasena,
       Actividad:this.formularioEditar.value.Actividad,
       Roles:this.formularioEditar.value.Roles,
     }

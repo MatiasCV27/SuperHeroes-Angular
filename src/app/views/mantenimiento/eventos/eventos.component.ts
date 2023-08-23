@@ -25,7 +25,7 @@ export class EventosComponent {
     Lugar:[,[Validators.required]],
     Impacto:[,[Validators.required]],
     Fecha:[,[Validators.required]],
-    Descripción:[,[Validators.required]],
+    Descripcion:[,[Validators.required]],
     Imagen:[,[Validators.required]],
   })
 
@@ -35,7 +35,7 @@ export class EventosComponent {
     Lugar:[,[Validators.required]],
     Impacto:[,[Validators.required]],
     Fecha:[,[Validators.required]],
-    Descripción:[,[Validators.required]],
+    Descripcion:[,[Validators.required]],
     Imagen:[,[Validators.required]],
   })
 
@@ -82,7 +82,7 @@ export class EventosComponent {
       Lugar:this.formularioEditar.value.Lugar,
       Impacto:this.formularioEditar.value.Impacto,
       Fecha:this.formularioEditar.value.Fecha,
-      Descripción:this.formularioEditar.value.Descripción,
+      Descripcion:this.formularioEditar.value.Descripcion,
       Imagen:this.formularioEditar.value.Imagen,
     }
     this.eventosservice.editarEvento(evento).subscribe(resp => {
