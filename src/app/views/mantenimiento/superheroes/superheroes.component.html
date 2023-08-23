@@ -1,7 +1,158 @@
 <ng-container *ngComponentOutlet="navbarComponent"></ng-container>
 
-<div class="container">
-    <h1>Aqui va el contenido del man. superh</h1>
-</div>
+  <div class="container mt-5 mb-5" align="center">
+    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistroSh">Registrar</button>
+  </div>
+  
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Alias</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Nacionalidad</th>
+          <th scope="col">Debilidad</th>
+          <th scope="col">Equipo</th>
+          <th scope="col">Imagen</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let datos of data;let id = index">
+          <th scope="row">{{ id + 1}}</th>
+          <td>{{ datos.Nombre }}</td>
+          <td>{{ datos.Alias }}</td>
+          <td>{{ datos.Edad }}</td>
+          <td>{{ datos.Genero }}</td>
+          <td>{{ datos.Nacionalidad }}</td>
+          <td>{{ datos.Debilidad }}</td>
+          <td>{{ datos.Equipo }}</td>
+          <td><img [src]="datos.Imagen" width="75"></td>
+          <td>
+            <button (click)="seleccionarSuperHeroe(datos.id)" class="btn btn-success btn-md" data-bs-toggle="modal" data-bs-target="#modalEditarSh">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+          </td>
+          <td>
+            <a (click)="eliminarSUperHeroe(datos.id, id)" class="btn btn-danger btn-md"><i class="bi bi-trash"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!--TODO Modal de Registro -->
+  <div class="modal fade" id="modalRegistroSh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modalStyle">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar nuevo superheroe</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body mt-3 mb-3">
+          <div class="container">
+            <form (ngSubmit)="registrarSuperHeroe()" [formGroup]="formulario" class="row g-3">
+              <div class="col-md-6">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="" formControlName="Nombre">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Alias</label>
+                <input type="text" class="form-control" id="" formControlName="Alias">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Edad</label>
+                <input type="text" class="form-control" id="" formControlName="Edad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Genero</label>
+                <input type="text" class="form-control" id="" formControlName="Genero">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Nacionalidad</label>
+                <input type="text" class="form-control" id="" formControlName="Nacionalidad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Debilidad</label>
+                <input type="text" class="form-control" id="" formControlName="Debilidad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Equipo</label>
+                <input type="text" class="form-control" id="" formControlName="Equipo">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Imagen (URL)</label>
+                <input type="text" class="form-control" id="" formControlName="Imagen">
+              </div>
+              <div class="col-md-6 mt-4"></div>
+              <div class="col-md-6 mt-4 d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary mx-2" data-bs-dismiss="modal">Registrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--TODO Modal de Editar -->
+  <div class="modal fade" id="modalEditarSh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content modalStyle">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar superheroe</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body mt-3 mb-3">
+          <div class="container">
+            <form (ngSubmit)="editarSuperHeroe(id)" [formGroup]="formularioEditar" class="row g-3">
+              <div class="col-md-6">
+                <label for="" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="" formControlName="Nombre" name="info.Nombre" [(ngModel)]="info.Nombre">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Alias</label>
+                <input type="text" class="form-control" id="" formControlName="Alias" name="info.Alias" [(ngModel)]="info.Alias">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Edad</label>
+                <input type="text" class="form-control" id="" formControlName="Edad" name="info.Edad" [(ngModel)]="info.Edad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Genero</label>
+                <input type="text" class="form-control" id="" formControlName="Genero" name="info.Genero" [(ngModel)]="info.Genero">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Nacionalidad</label>
+                <input type="text" class="form-control" id="" formControlName="Nacionalidad" name="info.Nacionalidad" [(ngModel)]="info.Nacionalidad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Debilidad</label>
+                <input type="text" class="form-control" id="" formControlName="Debilidad" name="info.Debilidad" [(ngModel)]="info.Debilidad">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Equipo</label>
+                <input type="text" class="form-control" id="" formControlName="Equipo" name="info.Equipo" [(ngModel)]="info.Equipo">
+              </div>
+              <div class="col-md-6">
+                <label for="" class="form-label">Imagen (URL)</label>
+                <input type="text" class="form-control" id="" formControlName="Imagen" name="info.Imagen" [(ngModel)]="info.Imagen">
+              </div>
+              <div class="col-md-6 mt-4"></div>
+              <div class="col-md-6 mt-4 d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary mx-2" data-bs-dismiss="modal">Editar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
 
 <ng-container *ngComponentOutlet="footerComponent"></ng-container>
