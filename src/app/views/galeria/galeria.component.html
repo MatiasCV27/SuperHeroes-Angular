@@ -1,0 +1,138 @@
+<ng-container *ngComponentOutlet="navbarComponent"></ng-container>
+
+<div class="container mt-5">
+    <div class="text-white text-center mb-4"><h1>Galeria de Eventos</h1></div>
+    <div class="row">
+        <div *ngFor="let datosE of dataEve;let id = index" class='col-lg-3 col-md-6 col-sm-12 mx-auto mb-5'>
+            <div class="cardMostrar">
+              <div class="content">
+                <div class="back">
+                  <div class="back-content">
+                    <img [src]="datosE.Imagen" class='imgPEspecie'/>
+                  </div>
+                </div>
+                <div class="front">
+                  <div class="img">
+                    <div class="circle">
+                    </div>
+                    <div class="circle" id="right">
+                    </div>
+                    <div class="circle" id="bottom">
+                    </div>
+                  </div>
+                  <div class="front-content contEspecie">
+                    <div class="description">
+                      <div class="">
+                        <p class="text-center">
+                          <strong>{{ datosE.Nombre }}</strong>
+                          <!-- <i>{especie.Significado}</i> -->
+                        </p>
+                      </div>
+                      <div class="textoCard"><strong>Descripción: </strong><p>{{ datosE.Descripcion }}</p></div>
+                      <div class='row'>
+                        <div class="textoCard col-6 text-center"><strong>Luegar: </strong><p>{{ datosE.Lugar }}</p></div>
+                        <div class="textoCard col-6 text-center"><strong>Impacto: </strong><p>{{ datosE.Impacto }}</p></div>
+                      </div>
+                      <div className='row mx-auto'>
+                        <div class="textoCard col-12 text-center"><strong>Año: </strong><p>{{ datosE.Fecha }}</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-white text-center mb-4"><h1>Galeria de Villanos</h1></div>
+    <div class="row">
+        <div *ngFor="let datosV of dataVill;let id = index" class='col-lg-3 col-md-6 col-sm-12 mx-auto mb-5'>
+            <div class="cardMostrarVS">
+              <div class="content">
+                <div class="back">
+                  <div class="back-content">
+                    <img [src]="datosV.Imagen" class='imgPEspecie'/>
+                  </div>
+                </div>
+                <div class="front">
+                  <div class="img">
+                    <div class="circle">
+                    </div>
+                    <div class="circle" id="right">
+                    </div>
+                    <div class="circle" id="bottom">
+                    </div>
+                  </div>
+                  <div class="front-content contEspecie">
+                    <div class="description">
+                      <div class="">
+                        <p class="text-center">
+                            <strong>{{ datosV.Alias }}</strong> <br>
+                            <i>{{ datosV.Nombre }}</i> 
+                        </p>
+                      </div>
+                      <div class='row'>
+                        <div class="textoCard col-6 text-center"><strong>Equipo: </strong><p>{{ datosV.Equipo }}</p></div>
+                        <div class="textoCard col-6 text-center"><strong>Debilidad: </strong><p>{{ datosV.Debilidad }}</p></div>
+                      </div>
+                      <div class='row'>
+                        <div class="textoCard col-6 text-center"><strong>Nacionalidad: </strong><p>{{ datosV.Nacionalidad }}</p></div>
+                        <div class="textoCard col-6 text-center"><strong>Genero: </strong><p>{{ datosV.Genero }}</p></div>
+                      </div>
+                      <div className='row mx-auto'>
+                        <div class="textoCard col-12 text-center"><strong>Edad: </strong><p>{{ datosV.Edad }}</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-white text-center mb-4"><h1>Galeria de SuperHeroes</h1></div>
+    <div class="row">
+        <div *ngFor="let datosSH of dataSH;let id = index" class='col-lg-3 col-md-6 col-sm-12 mx-auto mb-5'>
+            <div class="cardMostrarVS">
+              <div class="content">
+                <div class="back">
+                  <div class="back-content">
+                    <img [src]="datosSH.Imagen" class='imgPEspecie'/>
+                  </div>
+                </div>
+                <div class="front">
+                  <div class="img">
+                    <div class="circle">
+                    </div>
+                    <div class="circle" id="right">
+                    </div>
+                    <div class="circle" id="bottom">
+                    </div>
+                  </div>
+                  <div class="front-content contEspecie">
+                    <div class="description">
+                      <div class="">
+                        <p class="text-center">
+                            <strong>{{ datosSH.Alias }}</strong> <br>
+                            <i>{{ datosSH.Nombre }}</i> 
+                        </p>
+                      </div>
+                      <div class='row'>
+                        <div class="textoCard col-6 text-center"><strong>Equipo: </strong><p>{{ datosSH.Equipo }}</p></div>
+                        <div class="textoCard col-6 text-center"><strong>Debilidad: </strong><p>{{ datosSH.Debilidad }}</p></div>
+                      </div>
+                      <div class='row'>
+                        <div class="textoCard col-6 text-center"><strong>Nacionalidad: </strong><p>{{ datosSH.Nacionalidad }}</p></div>
+                        <div class="textoCard col-6 text-center"><strong>Genero: </strong><p>{{ datosSH.Genero }}</p></div>
+                      </div>
+                      <div className='row mx-auto'>
+                        <div class="textoCard col-12 text-center"><strong>Edad: </strong><p>{{ datosSH.Edad }}</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngComponentOutlet="footerComponent"></ng-container>

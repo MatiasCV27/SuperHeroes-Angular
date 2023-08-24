@@ -17,7 +17,8 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth'; // Asegúrate de importar el módulo
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { GaleriaComponent } from './views/galeria/galeria.component'; // Asegúrate de importar el módulo
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth'; // Asegúrate de impor
     UsuariosComponent,
     EventosComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
