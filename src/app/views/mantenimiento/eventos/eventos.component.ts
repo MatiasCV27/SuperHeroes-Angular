@@ -20,14 +20,14 @@ export class EventosComponent {
   id:any;
 
   //TODO Validar Registro
-  formulario:FormGroup = this.fb.group({
-    Nombre:[,[Validators.required]],
-    Lugar:[,[Validators.required]],
-    Impacto:[,[Validators.required]],
-    Fecha:[,[Validators.required]],
-    Descripcion:[,[Validators.required]],
-    Imagen:[,[Validators.required]],
-  })
+  formulario: FormGroup = this.fb.group({
+    Nombre: ['', [Validators.required, Validators.minLength(3)]],
+    Lugar: ['', [Validators.required, Validators.minLength(3)]],
+    Impacto: ['', [Validators.required, Validators.minLength(3)]],
+    Fecha: ['', [Validators.required, Validators.minLength(3)]],
+    Descripcion: ['', [Validators.required, Validators.minLength(3)]],
+    Imagen: ['', [Validators.required, Validators.minLength(3)]],
+  });
 
   //TODO Validar Editar
   formularioEditar:FormGroup = this.fb.group({
@@ -53,6 +53,27 @@ export class EventosComponent {
   registrarEvento() {
     if (!this.formulario.valid) {
       this.formulario.markAllAsTouched();
+      let errorMessage = 'Por favor completa todos los campos antes de registrar el evento.';
+      if (this.formulario.controls['Nombre'].invalid && this.formulario.controls['Nombre'].errors?.['minlength']) {
+        errorMessage = `El campo nombre debe tener al menos ${this.formulario.controls['Nombre'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Lugar'].invalid && this.formulario.controls['Lugar'].errors?.['minlength']) {
+        errorMessage = `El campo lugar debe tener al menos ${this.formulario.controls['Lugar'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Impacto'].invalid && this.formulario.controls['Impacto'].errors?.['minlength']) {
+        errorMessage = `El campo impacto debe tener al menos ${this.formulario.controls['Impacto'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Fecha'].invalid && this.formulario.controls['Fecha'].errors?.['minlength']) {
+        errorMessage = `El campo fecha debe tener al menos ${this.formulario.controls['Fecha'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Descripcion'].invalid && this.formulario.controls['Descripcion'].errors?.['minlength']) {
+        errorMessage = `El campo descripción debe tener al menos ${this.formulario.controls['Descripcion'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Imagen'].invalid && this.formulario.controls['Imagen'].errors?.['minlength']) {
+        errorMessage = `El campo imagen debe tener al menos ${this.formulario.controls['Imagen'].errors['minlength'].requiredLength} caracteres.`;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: errorMessage,
+        background: '#212529',
+        color: 'white' 
+      });
       return
     }
     this.eventosservice.registrarEvento(this.formulario.value).subscribe(

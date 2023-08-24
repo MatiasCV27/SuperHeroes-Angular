@@ -21,14 +21,14 @@ export class SuperheroesComponent {
 
   //TODO Validar Registro
   formulario:FormGroup = this.fb.group({
-    Nombre:[,[Validators.required]],
-    Alias:[,[Validators.required]],
-    Edad:[,[Validators.required]],
-    Genero:[,[Validators.required]],
-    Nacionalidad:[,[Validators.required]],
-    Debilidad:[,[Validators.required]],
-    Equipo:[,[Validators.required]],
-    Imagen:[,[Validators.required]],
+    Nombre:['', [Validators.required, Validators.minLength(3)]],
+    Alias:['',  [Validators.required, Validators.minLength(3)]],
+    Edad:['', [Validators.required, Validators.minLength(1)]],
+    Genero:['', [Validators.required, Validators.minLength(3)]],
+    Nacionalidad:['', [Validators.required, Validators.minLength(3)]],
+    Debilidad:['', [Validators.required, Validators.minLength(3)]],
+    Equipo:['', [Validators.required, Validators.minLength(3)]],
+    Imagen:['', [Validators.required, Validators.minLength(3)]],
   })
 
   //TODO Validar Editar
@@ -57,6 +57,31 @@ export class SuperheroesComponent {
   registrarSuperHeroe() {
     if (!this.formulario.valid) {
       this.formulario.markAllAsTouched();
+      let errorMessage = 'Por favor completa todos los campos antes de registrar el superheroe.';
+      if (this.formulario.controls['Nombre'].invalid && this.formulario.controls['Nombre'].errors?.['minlength']) {
+        errorMessage = `El campo nombre debe tener al menos ${this.formulario.controls['Nombre'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Alias'].invalid && this.formulario.controls['Alias'].errors?.['minlength']) {
+        errorMessage = `El campo alias debe tener al menos ${this.formulario.controls['Alias'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Edad'].invalid && this.formulario.controls['Edad'].errors?.['minlength']) {
+        errorMessage = `El campo edad debe tener al menos ${this.formulario.controls['Edad'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Genero'].invalid && this.formulario.controls['Genero'].errors?.['minlength']) {
+        errorMessage = `El campo genero debe tener al menos ${this.formulario.controls['Genero'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Nacionalidad'].invalid && this.formulario.controls['Nacionalidad'].errors?.['minlength']) {
+        errorMessage = `El campo nacionalidad debe tener al menos ${this.formulario.controls['Nacionalidad'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Debilidad'].invalid && this.formulario.controls['Debilidad'].errors?.['minlength']) {
+        errorMessage = `El campo debilidad debe tener al menos ${this.formulario.controls['Debilidad'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Equipo'].invalid && this.formulario.controls['Equipo'].errors?.['minlength']) {
+        errorMessage = `El campo equipo debe tener al menos ${this.formulario.controls['Equipo'].errors['minlength'].requiredLength} caracteres.`;
+      } else if (this.formulario.controls['Imagen'].invalid && this.formulario.controls['Imagen'].errors?.['minlength']) {
+        errorMessage = `El campo imagen debe tener al menos ${this.formulario.controls['Imagen'].errors['minlength'].requiredLength} caracteres.`;
+      }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: errorMessage,
+        background: '#212529',
+        color: 'white' 
+      });
       return
     }
     this.superheroesservice.registrarSuperHeroe(this.formulario.value).subscribe(
