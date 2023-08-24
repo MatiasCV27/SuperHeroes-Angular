@@ -9,7 +9,6 @@ import { HomeComponent } from './views/home/home.component';
 import { ContactoComponent } from './views/contacto/contacto.component';
 import { SuperheroesComponent } from './views/mantenimiento/superheroes/superheroes.component';
 import { VillanosComponent } from './views/mantenimiento/villanos/villanos.component';
-import { UsuariosComponent } from './views/mantenimiento/usuarios/usuarios.component';
 import { EventosComponent } from './views/mantenimiento/eventos/eventos.component';
 
 import { NavbarModule } from './views/shared/navbar/navbar.module';
@@ -27,7 +26,6 @@ import { GaleriaComponent } from './views/galeria/galeria.component'; // Asegúr
     ContactoComponent,
     SuperheroesComponent,
     VillanosComponent,
-    UsuariosComponent,
     EventosComponent,
     LoginComponent,
     RegisterComponent,
