@@ -167,3 +167,98 @@ button {
   text-align: center;
   vertical-align: middle;
 }
+
+/*! Contacto  */
+.imgContacto {
+  background-image: url("https://pm1.aminoapps.com/7983/fbaf47cef67d4434bc11e8bbb82b111902bcba63r1-1366-854v2_hq.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left top;
+  width: 100%;
+  min-height: 500px;
+  height: 100%;
+  border-radius: 10px;
+  border: .5px solid white;
+}
+.overlayContacto {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+}
+.login-boxConct {
+  width: 100%;
+  padding: 20px 40px;
+  background: #212529;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  border: .5px solid white;
+}
+.login-boxConct .user-boxConct {
+position: relative;
+}
+.login-boxConct .user-boxConct input {
+width: 100%;
+padding: 10px 0;
+font-size: 16px;
+color: #fff;
+margin-bottom: 30px;
+border: none;
+border-bottom: 1px solid #fff;
+outline: none;
+background: transparent;
+}
+
+.login-boxConct .user-boxConct input:focus ~ label,
+.login-boxConct .user-boxConct textarea:focus ~ label,
+.login-boxConct .user-boxConct input:valid ~ label {
+color: white;
+font-size: 12px;
+}
+.login-boxConct form a {
+position: relative;
+display: inline-block;
+padding: 10px 20px;
+color: #ffffff;
+font-size: 16px;
+text-decoration: none;
+text-transform: uppercase;
+overflow: hidden;
+transition: .5s;
+margin-top: 40px;
+letter-spacing: 4px
+}
+.login-boxConct a:hover {
+background: white;
+color: #fff;
+border-radius: 5px;
+box-shadow: 0 0 5px white,
+            0 0 25px white,
+            0 0 50px white,
+            0 0 100px white;
+}
+.login-boxConct a span {
+position: absolute;
+display: block;
+}
+@keyframes btn-anim1 {
+0% {
+  left: -100%;
+}
+
+50%,100% {
+  left: 100%;
+}
+}
+.login-boxConct a span:nth-child(1) {
+bottom: 2px;
+left: -100%;
+width: 100%;
+height: 2px;
+background: linear-gradient(90deg, transparent, white);
+animation: btn-anim1 2s linear infinite;
+}
+#EnviarCont {
+  margin: 1em;
+  background: white;
+}

@@ -1,7 +1,37 @@
 <ng-container *ngComponentOutlet="navbarComponent"></ng-container>
 
-<div class="container">
-    <h1>Aqui va el contenido del contacto</h1>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="imgContacto">
+                <div class="overlayContacto"></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="login-boxConct">
+              <h4 class="text-white text-center" style="padding: .75em 0">
+                <u>Contactanos para más información</u>
+              </h4>
+              <form>
+                <div class="user-boxConct">
+                    <label class="text-white">Nombre Completo:</label>
+                    <input type="text" name="user"/>
+                </div>
+                <div class="user-boxConct">
+                    <label class="text-white">Correo Electrónico:</label>
+                    <input type="text" name=""/>
+                </div>
+                <div class="user-boxConct">
+                    <label class="text-white">Consulta:</label>
+                    <input type="text" name=""/>
+                </div>
+                <div align="center">
+                    <a id="EnviarCont"><strong>Enviar</strong><span></span></a>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <ng-container *ngComponentOutlet="footerComponent"></ng-container>
