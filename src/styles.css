@@ -3,6 +3,24 @@ body {
   background-repeat: no-repeat;
   background-size: cover; 
 }
+/*! Index */
+.imgcard {
+  width: auto;
+  padding: 3em;
+  max-width: 100%;
+}
+.bgA {
+  background-image: radial-gradient(circle, #b86b6b, #874f54, #59363b, #2e1e21, #000000);
+  color: white;
+  border-radius: .5em;
+  margin-bottom: 1em;
+}
+.bgB {
+  background-image: radial-gradient(circle, #7e373a, #5e2b30, #401f24, #231417, #000000);
+  color: white;
+  border-radius: .5em;
+  margin-bottom: 1em;
+}
 /*! Modal */
 .modalStyle {
     color: white;
@@ -68,6 +86,7 @@ body {
     left: 50%;
     width: 400px;
     padding: 40px;
+    margin-top: 2em;
     transform: translate(-50%, -50%);
     background-image: radial-gradient(circle, #44131a, #351117, #260f13, #18080c, #000000);
     box-sizing: border-box;
