@@ -17,7 +17,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth'; 
+import { provideAuth,getAuth } from '@angular/fire/auth'; // Asegúrate de importar el módulo
 
 @NgModule({
   declarations: [

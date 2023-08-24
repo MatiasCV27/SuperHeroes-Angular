@@ -1,7 +1,7 @@
 import { Component, Type } from '@angular/core';
 import { EventosService } from '../../../services/eventos.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2';
 import { NavbarComponent } from 'src/app/views/shared/navbar/navbar.component';
 import { FooterComponent } from 'src/app/views/shared/footer/footer.component';
 @Component({
@@ -55,11 +55,20 @@ export class EventosComponent {
       this.formulario.markAllAsTouched();
       return
     }
-    this.eventosservice.registrarEvento(this.formulario.value).subscribe(resp => {
-      console.log("El evento se registro de forma exitosa!");
-      this.eventos();
-      this.formulario.reset();
-    })
+    this.eventosservice.registrarEvento(this.formulario.value).subscribe(
+      () => {
+        this.eventos();
+        this.formulario.reset();
+        Swal.fire({
+          icon: 'success',
+          title: 'Registro Exitoso',
+          text: 'El evento se registró correctamente.',
+          timer: 2000,
+          background: '#212529',
+          color: 'white'
+        });
+      },
+    );
   }
 
   seleccionarEvento(id:any) {
@@ -85,13 +94,44 @@ export class EventosComponent {
       Descripcion:this.formularioEditar.value.Descripcion,
       Imagen:this.formularioEditar.value.Imagen,
     }
-    this.eventosservice.editarEvento(evento).subscribe(resp => {
-      this.eventos();
-    })
+    this.eventosservice.editarEvento(evento).subscribe(
+      () => {
+        this.eventos();
+        Swal.fire({
+          icon: 'success',
+          title: 'Edición Exitosa',
+          text: 'El evento se editó correctamente.',
+          timer: 2000,
+          background: '#212529',
+          color: 'white' 
+        });
+      },
+    );
   }
 
-  eliminarEvento(id:any, z:number) {
-    this.data.splice(z,1);
-    this.eventosservice.eliminarEvento(id).subscribe(resp => console.log('El evento se elimino de forma correcta!'));
+  eliminarEvento(id: any, z: number) {
+    Swal.fire({
+      title: '¿Seguro que quieres eliminar este evento?',
+      icon: 'question',
+      text: 'No se podrá revertir la eliminación del evento',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar',
+      cancelButtonText: 'Cancelar',
+      background: '#212529',
+      color: 'white'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.data.splice(z, 1);
+        this.eventosservice.eliminarEvento(id).subscribe(resp => {
+        Swal.fire({
+          title: 'Eliminado',
+          text: 'El evento ha sido eliminado correctamente.',
+          icon: 'success',
+          background: '#212529', 
+          color: 'white'
+        });
+      });
+      }
+    });
   }
 }
