@@ -1,0 +1,25 @@
+<ng-container *ngComponentOutlet="navbarComponent"></ng-container>
+
+<div style="height: 87vh;" class="bgLogin"> 
+    <div class="login-box"> 
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+          <h4 class="text-white text-center mb-3"><u>Login de Usuario</u></h4>
+          <div class="user-box">
+            <img src="../../../assets/img/login.png" alt="" width="80%" style="margin-left: 10%;">
+          </div>
+          <div class="user-box">
+            <input type="text" required formControlName="email" name="email">
+            <label for="username">Correo Electrónico</label>
+          </div>
+          <div class="user-box">
+            <input type="password" required formControlName="password" name="password">
+            <label for="password">Contraseña </label>
+          </div>
+          <div align="center">
+            <button type="submit" class="btn mx-auto btnBacK">Ingresar<span></span></button>
+          </div>
+        </form> 
+    </div>
+</div>
+
+<ng-container *ngComponentOutlet="footerComponent"></ng-container>

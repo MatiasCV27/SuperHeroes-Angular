@@ -10,9 +10,11 @@
                 <a class="nav-link" [routerLink]="['/eventos']"><strong>Eventos</strong></a>
                 <a class="nav-link" [routerLink]="['/villanos']"><strong>Villanos</strong></a>
                 <a class="nav-link" [routerLink]="['/superheroes']"><strong>Superheroes</strong></a>
-                <a class="nav-link" [routerLink]="['/usuarios']"><strong>Usuarios</strong></a>
+                <!-- <a class="nav-link" [routerLink]="['/usuarios']"><strong>Usuarios</strong></a> -->
                 <a class="nav-link" [routerLink]="['/contacto']"><strong>Contacto</strong></a>
-                <a class="nav-link"><strong>Login</strong></a>
+                <a class="nav-link" [routerLink]="['/register']"><strong>Registrar</strong></a>
+                <a class="nav-link" [routerLink]="['/login']"><strong>Login</strong></a>
+                <a class="nav-link" (click)="onClick()" style="cursor: pointer;"><strong>Logout</strong></a>
             </div>
         </div>
     </div>

@@ -48,3 +48,106 @@
         padding: 12.5px;
     }
 }
+
+/*! Fondo */
+.bgLogin {
+    background-image: url('assets/img/loginFondo.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+/*! Login */
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background-image: radial-gradient(circle, #44131a, #351117, #260f13, #18080c, #000000);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+.login-box .user-box {
+  position: relative;
+}
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #bdb8b8;
+  font-size: 12px;
+}
+.login-box form button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  letter-spacing: 4px;
+  margin-top: 1em;
+}
+button {
+  background: transparent;
+  border: none;
+}
+.login-box button:hover {
+  background: #4A9BCE!important;
+  color: #ffffff!important;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #4A9BCE,
+              0 0 12.5px #4A9BCE,
+              0 0 25px #4A9BCE,
+              0 0 50px #4A9BCE;
+}
+.login-box button span {
+  position: absolute;
+  display: block;
+}
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+.login-box button span:nth-child(1) {
+  bottom: 2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4A9BCE);
+  animation: btn-anim1 2s linear infinite;
+}
+@media only screen and (max-width:425px) {
+  .login-box {
+    width: 300px;
+  }
+}

@@ -12,7 +12,12 @@ import { VillanosComponent } from './views/mantenimiento/villanos/villanos.compo
 import { UsuariosComponent } from './views/mantenimiento/usuarios/usuarios.component';
 import { EventosComponent } from './views/mantenimiento/eventos/eventos.component';
 
-import { NavbarModule } from './views/shared/navbar/navbar.module'; // Asegúrate de importar el módulo
+import { NavbarModule } from './views/shared/navbar/navbar.module';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth'; 
 
 @NgModule({
   declarations: [
@@ -22,7 +27,9 @@ import { NavbarModule } from './views/shared/navbar/navbar.module'; // Asegúrat
     SuperheroesComponent,
     VillanosComponent,
     UsuariosComponent,
-    EventosComponent
+    EventosComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,9 @@ import { NavbarModule } from './views/shared/navbar/navbar.module'; // Asegúrat
     ReactiveFormsModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     AppRoutingModule,
-    NavbarModule 
+    NavbarModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()) 
   ],
   providers: [],
   bootstrap: [AppComponent],

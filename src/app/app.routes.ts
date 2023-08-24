@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { HomeComponent } from './views/home/home.component';
 import { ContactoComponent } from './views/contacto/contacto.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 import { EventosComponent } from './views/mantenimiento/eventos/eventos.component';
 import { SuperheroesComponent } from './views/mantenimiento/superheroes/superheroes.component';
 import { VillanosComponent } from './views/mantenimiento/villanos/villanos.component';
-import { UsuariosComponent } from './views/mantenimiento/usuarios/usuarios.component';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'eventos', component: EventosComponent },
-  { path: 'superheroes', component: SuperheroesComponent },
-  { path: 'villanos', component: VillanosComponent },
-  { path: 'usuarios', component: UsuariosComponent },
+  { path: 'eventos', component: EventosComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
+  { path: 'superheroes', component: SuperheroesComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
+  { path: 'villanos', component: VillanosComponent, ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
