@@ -1,43 +1,43 @@
 <ng-container *ngComponentOutlet="navbarComponent"></ng-container>
 
-<div class="container mt-5 mb-5" align="center">
-    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistroVil">Registrar</button>
+<div class="container mt-4 mb-4" align="center">
+    <button type="submit" class="btn btn-dark botonRegistrar" data-bs-toggle="modal" data-bs-target="#modalRegistroVil">Registrar</button>
   </div>
   
   <div class="container">
-    <table class="table">
+    <table class="table" style="border: 1px solid white;">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Alias</th>
-          <th scope="col">Edad</th>
-          <th scope="col">Genero</th>
-          <th scope="col">Nacionalidad</th>
-          <th scope="col">Debilidad</th>
-          <th scope="col">Equipo</th>
-          <th scope="col">Imagen</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th scope="col" class="titleTable">#</th>
+          <th scope="col" class="titleTable">Nombre</th>
+          <th scope="col" class="titleTable">Alias</th>
+          <th scope="col" class="titleTable">Edad</th>
+          <th scope="col" class="titleTable">Genero</th>
+          <th scope="col" class="titleTable">Nacionalidad</th>
+          <th scope="col" class="titleTable">Debilidad</th>
+          <th scope="col" class="titleTable">Equipo</th>
+          <th scope="col" class="titleTable">Imagen</th>
+          <th scope="col" class="titleTable"></th>
+          <th scope="col" class="titleTable"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let datos of data;let id = index">
-          <th scope="row">{{ id + 1}}</th>
-          <td>{{ datos.Nombre }}</td>
-          <td>{{ datos.Alias }}</td>
-          <td>{{ datos.Edad }}</td>
-          <td>{{ datos.Genero }}</td>
-          <td>{{ datos.Nacionalidad }}</td>
-          <td>{{ datos.Debilidad }}</td>
-          <td>{{ datos.Equipo }}</td>
-          <td><img [src]="datos.Imagen" width="75"></td>
-          <td>
+          <th scope="row" class="titleTable">{{ id + 1}}</th>
+          <td class="titleTable">{{ datos.Nombre }}</td>
+          <td class="titleTable">{{ datos.Alias }}</td>
+          <td class="titleTable">{{ datos.Edad }}</td>
+          <td class="titleTable">{{ datos.Genero }}</td>
+          <td class="titleTable">{{ datos.Nacionalidad }}</td>
+          <td class="titleTable">{{ datos.Debilidad }}</td>
+          <td class="titleTable">{{ datos.Equipo }}</td>
+          <td class="titleTable"><img [src]="datos.Imagen" style="border: 1px solid white;" width="100"></td>
+          <td class="titleTable">
             <button (click)="seleccionarVillano(datos.id)" class="btn btn-success btn-md" data-bs-toggle="modal" data-bs-target="#modalEditarVil">
               <i class="bi bi-pencil-square"></i>
             </button>
           </td>
-          <td>
+          <td class="titleTable">
             <a (click)="eliminarVillano(datos.id, id)" class="btn btn-danger btn-md"><i class="bi bi-trash"></i></a>
           </td>
         </tr>

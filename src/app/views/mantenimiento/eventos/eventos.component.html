@@ -1,39 +1,39 @@
 <ng-container *ngComponentOutlet="navbarComponent"></ng-container>
 
-<div class="container mt-5 mb-5" align="center">
-    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistroEt">Registrar</button>
+<div class="container mt-4 mb-4" align="center">
+    <button type="submit" class="btn btn-dark botonRegistrar" data-bs-toggle="modal" data-bs-target="#modalRegistroEt"> Registrar</button>
   </div>
   
   <div class="container">
-    <table class="table">
+    <table class="table" style="border: 1px solid white;">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Lugar</th>
-          <th scope="col">Impacto</th>
-          <th scope="col">Fecha</th>
-          <th scope="col">Descripcion</th>
-          <th scope="col">Imagen</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th scope="col" class="titleTable">#</th>
+          <th scope="col" class="titleTable">Nombre</th>
+          <th scope="col" class="titleTable">Lugar</th>
+          <th scope="col" class="titleTable">Impacto</th>
+          <th scope="col" class="titleTable">Fecha</th>
+          <th scope="col" class="titleTable">Descripción</th>
+          <th scope="col" class="titleTable">Imagen</th>
+          <th scope="col" class="titleTable"></th>
+          <th scope="col" class="titleTable"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let datos of data;let id = index">
-          <th scope="row">{{ id + 1}}</th>
-          <td>{{ datos.Nombre }}</td>
-          <td>{{ datos.Lugar }}</td>
-          <td>{{ datos.Impacto }}</td>
-          <td>{{ datos.Fecha }}</td>
-          <td>{{ datos.Descripcion }}</td>
-          <td><img [src]="datos.Imagen" width="75"></td>
-          <td>
+          <th scope="row" class="titleTable">{{ id + 1}}</th>
+          <td class="titleTable">{{ datos.Nombre }}</td>
+          <td class="titleTable">{{ datos.Lugar }}</td>
+          <td class="titleTable">{{ datos.Impacto }}</td>
+          <td class="titleTable">{{ datos.Fecha }}</td>
+          <td class="titleTable">{{ datos.Descripcion }}</td>
+          <td class="titleTable"><img [src]="datos.Imagen" style="border: 1px solid white;" width="100"></td>
+          <td class="titleTable">
             <button (click)="seleccionarEvento(datos.id)" class="btn btn-success btn-md" data-bs-toggle="modal" data-bs-target="#modalEditarEt">
               <i class="bi bi-pencil-square"></i>
             </button>
           </td>
-          <td>
+          <td class="titleTable">
             <a (click)="eliminarEvento(datos.id, id)" class="btn btn-danger btn-md"><i class="bi bi-trash"></i></a>
           </td>
         </tr>
@@ -134,5 +134,7 @@
       </div>
     </div>
   </div> 
+
+  <!-- <div style="height: 60px;"></div> -->
 
 <ng-container *ngComponentOutlet="footerComponent"></ng-container>
